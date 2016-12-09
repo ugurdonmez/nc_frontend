@@ -13,10 +13,13 @@ import { NavController } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController) {}
+    constructor(public navCtrl: NavController) {}
 
-  ionViewDidLoad() {
-    console.log('Hello LoginPage Page');
-  }
-
+    ionViewDidLoad() {
+        console.log('Hello LoginPage Page');
+    }
+    
+    updateEmailAddress(ev) {
+        console.log(ev.target.value);
+    }
 }
