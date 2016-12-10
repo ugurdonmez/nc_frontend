@@ -12,16 +12,11 @@ export class EmailApi {
 
     }
 
-    load(email: string): Observable<string> {
+    load(email: string): Observable<any> {
         
         return this.http.get(`${this.emailApiUrl}${email}`)
-                        .map(this.extractData)
+                        .map(res => res.json())
                         .catch(this.handleError);
-    }
-    
-    private extractData(res: Response) {
-        let body = res.json();
-        return body;
     }
 
     private handleError (error: Response | any) {
