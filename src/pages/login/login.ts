@@ -3,6 +3,9 @@ import { NavController } from 'ionic-angular';
 
 import { EmailApi } from '../../providers/email-api'
 
+import { Validation } from '../../models/validation';
+import { Suggestion } from '../../models/suggestion';
+
 
 @Component({
    selector: 'page-login',
@@ -10,16 +13,32 @@ import { EmailApi } from '../../providers/email-api'
 })
 
 export class LoginPage {
+    
+    a: number;
+    disableButton: boolean;
+    
+    validation: Validation;
+    suggestion: Suggestion;
+    
+    constructor(public navCtrl: NavController, private emailApi: EmailApi) {
+        this.a = 10;
+        this.disableButton = true;
+    }
 
-   constructor(public navCtrl: NavController, private emailApi: EmailApi) {}
+    ionViewDidLoad() {
+        console.log('Hello LoginPage Page');
+    }
 
-   ionViewDidLoad() {
-      console.log('Hello LoginPage Page');
-   }
-
-   updateEmailAddress(ev) {
-       this.emailApi.load(ev.target.value).subscribe(data => {
-          console.log(data)
+    updateEmailAddress(ev) {
+        this.emailApi.load(ev.target.value).subscribe(data => {
+            console.log(data);
+            this.validation = data.emailValidationResult;
+            this.suggestion = data.emailSuggestionResult;    
+            this.disableButton = !this.validation.isSyntaxCorrect;
         });
-   }
+    }
+    
+    clicked(ev) {
+        console.log('clicked');
+    }
 }
