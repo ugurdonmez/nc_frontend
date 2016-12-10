@@ -3,6 +3,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 
+import { EmailApi } from '../providers/email-api';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +19,6 @@ import { LoginPage } from '../pages/login/login';
     MyApp,
     LoginPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [EmailApi]
 })
 export class AppModule {}

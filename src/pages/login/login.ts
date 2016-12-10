@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-/*
-  Generated class for the Login page.
+import { EmailApi } from '../../providers/email-api'
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html'
+   selector: 'page-login',
+   templateUrl: 'login.html'
 })
+
 export class LoginPage {
 
-    constructor(public navCtrl: NavController) {}
+   constructor(public navCtrl: NavController, private emailApi: EmailApi) {}
 
-    ionViewDidLoad() {
-        console.log('Hello LoginPage Page');
-    }
-    
-    updateEmailAddress(ev) {
-        console.log(ev.target.value);
-    }
+   ionViewDidLoad() {
+      console.log('Hello LoginPage Page');
+   }
+
+   updateEmailAddress(ev) {
+       this.emailApi.load(ev.target.value).subscribe(data => {
+          console.log(data)
+        });
+   }
 }
