@@ -13,7 +13,7 @@
 
 * Clone or download repository to your local(or server)
 
-`git clone https://github.com/ugurdonmez/nc_backend.git`
+`git clone https://github.com/ugurdonmez/nc_frontend.git`
 
 * Change nc_frontent directory
 
