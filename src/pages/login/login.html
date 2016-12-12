@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-            
+                
     <ion-list>
 
         <ion-item>
@@ -23,6 +23,13 @@
     <div padding>
         <button [disabled]="disableButton" ion-button color="primary" block (click)="clicked($event)" >Sign In</button>
     </div>
+    
+    <ion-card [hidden]="!suggestion || suggestion?.suggestions.length == 0" class="card-suggestion">
+        <h2>Did you mean</h2>
+        <ion-list [virtualScroll]="suggestion?.suggestions">
+            <ion-item *virtualItem="let item">{{item}}</ion-item>
+        </ion-list>
+    </ion-card>
     
     <ion-card [hidden]="!validation || validation?.isSyntaxCorrect" class="card-validation-error">
         <div class="card-validation-error-div">Email is not correct</div>

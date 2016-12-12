@@ -31,10 +31,10 @@ export class LoginPage {
 
     updateEmailAddress(ev) {
         this.emailApi.load(ev.target.value).subscribe(data => {
-            console.log(data);
             this.validation = data.emailValidationResult;
             this.suggestion = data.emailSuggestionResult;    
             this.disableButton = !this.validation.isSyntaxCorrect;
+            console.log(this.suggestion);
         });
     }
     

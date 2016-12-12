@@ -5,6 +5,18 @@ page-login {
         text-align: center;
     }
     
+    .card-suggestion {
+        background-color: aqua;
+        
+        h2 {
+            font-size: 150%;
+        }
+        
+        ion-item {
+            background-color: azure;
+        }
+    }
+    
     .card-validation-error {
         background-color: bisque;
     }
