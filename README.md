@@ -6,7 +6,15 @@
 * Html
 * Scss
 
-## How to create war file ##
+
+## Demo Run ##
+
+Demo project run on the following url.
+
+`http://ugurdonmez.com/nc_frontend/`
+
+
+## How to build ##
 
 #### Prerequisites ####
 - [ ] ionic
